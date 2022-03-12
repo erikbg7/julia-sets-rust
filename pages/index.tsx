@@ -1,12 +1,10 @@
-import Link from 'next/link';
-import Layout from '../components/Layout';
+import React, { useState } from 'react';
 import SettingsSidebar from '../components/SettingsSidebar';
-import { AspectRatio, Box, Center } from '@chakra-ui/react';
-import Function from '../components/Function';
-import React, { useEffect, useState } from 'react';
+import { Box } from '@chakra-ui/react';
 import { JuliaHeader } from '../components/JuliaHeader';
+import { JuliaImage } from '../components/JuliaImage';
 
-const IndexPage = () => {
+const Home = () => {
   const [size, setSize] = useState(1);
   const [color, setColor] = useState('grayScale');
 
@@ -25,42 +23,25 @@ const IndexPage = () => {
     // context.drawImage(baseImage, 0, 0, 600, 600, 0, 0, 360, 360);
   };
 
+  // return (
+  //   <Box display={'flex'} flexDir={['column', 'row-reverse']} justifyContent={['end', 'flex-end']}>
+  //     <JuliaHeader display={['flex', 'none']} />
+  //     <JuliaImage />
+  //     <SettingsSidebar onSizeChange={setSize} onColorChange={setColor} onGenerateJuliaSet={onGenerateJuliaSet} />
+  //     {/*<Function exp={2} cRe={0.2} cIm={-0.279} />*/}
+  //     {/*{color} kkk {size}*/}
+  //   </Box>
+  // );
+
   return (
     <Box display={'flex'} flexDir={['column', 'row-reverse']} justifyContent={['end', 'flex-end']}>
       <JuliaHeader display={['flex', 'none']} />
-      <Box margin={'0px 30px 10px 30px'}>
-        <AspectRatio maxW={['100vw', '100vh']} ratio={1}>
-          <canvas id={'canvas'} width={600} height={600} />
-          {/*style={{ margin: '20px 40px' }}*/}
-        </AspectRatio>
-      </Box>
-      {/*<Box display={'contents'} margin={['20px', 'auto']}>*/}
-      {/*<Box id={'canvas'} as={'canvas'} width={'90vw'} height={'90vw'} margin={'20px auto'}></Box>*/}
-      {/*// GOOD ONE*/}
-
-      {/*<canvas id={'canvas'} width={600} height={600} style={{ margin: '20px 40px' }} />*/}
-      {/*</Box>*/}
-      {/*<Box as={'canvas'} id={'canvas'} width={600} height={600} margin={['20px', 'auto']}></Box>*/}
+      <JuliaImage />
       <SettingsSidebar onSizeChange={setSize} onColorChange={setColor} onGenerateJuliaSet={onGenerateJuliaSet} />
       {/*<Function exp={2} cRe={0.2} cIm={-0.279} />*/}
-      {/*<canvas id={'canvas'} width={'100px'} height={'100px'} />*/}
-      {/**/}
-      {/**/}
-      {/**/}
-      {/**/}
-      {/*<canvas id={'canvas'} width={600} height={600} />*/}
-      {/*<Box*/}
-      {/*  id={'canvas2'}*/}
-      {/*  as={'canvas'}*/}
-      {/*  height={['100vw', '100vh', '100vh']}*/}
-      {/*  width={['100vw', '100vh', '100vh']}*/}
-      {/*  // bg={'red'}*/}
-      {/*  my={0}*/}
-      {/*  mx={'auto'}*/}
-      {/*/>*/}
       {/*{color} kkk {size}*/}
     </Box>
   );
 };
 
-export default IndexPage;
+export default Home;
