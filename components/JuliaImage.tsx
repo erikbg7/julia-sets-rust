@@ -3,8 +3,8 @@ import React from 'react';
 
 const JuliaImage = () => {
   return (
-    <Box margin={'0px 30px 10px 30px'}>
-      <AspectRatio maxW={['100vw', '100vh']} ratio={1}>
+    <Box as={'main'} margin={'auto 30px auto 30px'}>
+      <AspectRatio maxW={['100vw', '90vh']} ratio={1} margin={'auto'}>
         <canvas id={'canvas'} width={600} height={600} />
       </AspectRatio>
     </Box>

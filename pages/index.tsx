@@ -23,21 +23,11 @@ const Home = () => {
     // context.drawImage(baseImage, 0, 0, 600, 600, 0, 0, 360, 360);
   };
 
-  // return (
-  //   <Box display={'flex'} flexDir={['column', 'row-reverse']} justifyContent={['end', 'flex-end']}>
-  //     <JuliaHeader display={['flex', 'none']} />
-  //     <JuliaImage />
-  //     <SettingsSidebar onSizeChange={setSize} onColorChange={setColor} onGenerateJuliaSet={onGenerateJuliaSet} />
-  //     {/*<Function exp={2} cRe={0.2} cIm={-0.279} />*/}
-  //     {/*{color} kkk {size}*/}
-  //   </Box>
-  // );
-
   return (
-    <Box display={'flex'} flexDir={['column', 'row-reverse']} justifyContent={['end', 'flex-end']}>
+    <Box height={'100vh'} display={['block', 'grid']} gridTemplateColumns={'320px 1fr'}>
       <JuliaHeader display={['flex', 'none']} />
-      <JuliaImage />
       <SettingsSidebar onSizeChange={setSize} onColorChange={setColor} onGenerateJuliaSet={onGenerateJuliaSet} />
+      <JuliaImage />
       {/*<Function exp={2} cRe={0.2} cIm={-0.279} />*/}
       {/*{color} kkk {size}*/}
     </Box>

@@ -23,10 +23,11 @@ const SettingsSidebar = ({ onSizeChange, onColorChange, onGenerateJuliaSet }: an
   return (
     <Box
       as={'aside'}
-      position={'relative'}
-      width={['unset', '320px']}
-      height={'100vh'}
+      position={['absolute', 'relative']}
+      width={['100%', '320px']}
+      height={['50vh', '100vh']}
       px={4}
+      bottom={0}
       textAlign={'center'}
       borderTopRadius={10}
     >
