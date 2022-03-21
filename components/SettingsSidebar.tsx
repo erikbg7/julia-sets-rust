@@ -1,10 +1,11 @@
 import React from 'react';
-import { Accordion, Stack, Box, Text } from '@chakra-ui/react';
+import { Accordion, Stack, Box, Text, Heading } from '@chakra-ui/react';
 import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5';
 
 import ActionButtons from './ActionButtons';
 import { AccordionSection } from './AccordionSection';
 import { JuliaHeader } from './JuliaHeader';
+import { Function } from './Function';
 
 const COLOR_SETS = {
   GRAYSCALE: 'Grayscale',
@@ -32,7 +33,6 @@ const SettingsSidebar = ({ onSizeChange, onColorChange, onGenerateJuliaSet }: an
       borderTopRadius={10}
     >
       <JuliaHeader display={['none', 'flex']} />
-      <Box padding={'10px 0'}>Current Function: z^2 + 0.3 +0.6i</Box>
       <Accordion allowMultiple defaultIndex={[0, 1]}>
         <AccordionSection
           sectionName={'Color Schema'}
@@ -47,6 +47,12 @@ const SettingsSidebar = ({ onSizeChange, onColorChange, onGenerateJuliaSet }: an
           onChange={onSizeChange}
         />
       </Accordion>
+      <Box padding={'10px 0'}>
+        <Heading as={'h4'} size={'sm'}>
+          Current Function:
+        </Heading>
+        <Function exp={2} cRe={0.3} cIm={0.6} />
+      </Box>
 
       <ActionButtons onGenerateJuliaSet={onGenerateJuliaSet} />
 

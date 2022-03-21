@@ -4,7 +4,7 @@ import {
   AccordionIcon,
   AccordionItem,
   AccordionPanel,
-  Box,
+  Heading,
   Radio,
   RadioGroup,
   Stack,
@@ -20,14 +20,12 @@ type Props = {
 const AccordionSection = ({ defaultValue, sectionItems, sectionName, onChange }: Props) => {
   return (
     <AccordionItem>
-      <h2>
-        <AccordionButton>
-          <Box flex="1" textAlign="left" fontWeight={600}>
-            {sectionName}
-          </Box>
-          <AccordionIcon />
-        </AccordionButton>
-      </h2>
+      <AccordionButton>
+        <Heading as={'h3'} size={'sm'} flex={1} textAlign={'left'}>
+          {sectionName}
+        </Heading>
+        <AccordionIcon />
+      </AccordionButton>
       <AccordionPanel pb={4}>
         <RadioGroup onChange={onChange} defaultValue={defaultValue}>
           <Stack>

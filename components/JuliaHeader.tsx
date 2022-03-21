@@ -2,7 +2,6 @@ import React from 'react';
 import Image from 'next/image';
 import { Heading, ResponsiveValue, Stack } from '@chakra-ui/react';
 import { Property } from 'csstype';
-import Display = Property.Display;
 
 const JuliaHeader = ({ display }: { display: ResponsiveValue<Property.Display> }) => {
   return (
