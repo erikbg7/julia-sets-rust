@@ -20,6 +20,13 @@ const SIZE_SETS = {
   R4K: '4K',
 };
 
+const IMAGE_SIZES = {
+  [SIZE_SETS.R720]: { width: 200, height: 200 },
+  [SIZE_SETS.R1080]: { width: 200, height: 200 },
+  [SIZE_SETS.R2K]: { width: 200, height: 200 },
+  [SIZE_SETS.R4K]: { width: 200, height: 200 },
+};
+
 const SettingsSidebar = ({ onSizeChange, onColorChange, onGenerateJuliaSet }: any) => {
   return (
     <Box
@@ -65,4 +72,5 @@ const SettingsSidebar = ({ onSizeChange, onColorChange, onGenerateJuliaSet }: an
   );
 };
 
+export { IMAGE_SIZES, SIZE_SETS };
 export default SettingsSidebar;

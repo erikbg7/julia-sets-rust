@@ -1,27 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Box, Heading, NumberInput, NumberInputField } from '@chakra-ui/react';
 
-import { Function } from './Function';
-
-const FunctionInput = () => {
-  const [re, setRe] = useState(0.4);
-  const [im, setIm] = useState(-0.6);
-
+const FunctionInput = ({ onRealChange, onImaginaryChange }) => {
   return (
     <>
-      <Function exp={2} cRe={re} cIm={im} />
       <Box>
         <Heading as={'h5'} m={'1rem 3rem'}>
           Re:{' '}
           <NumberInput
-            onChange={(value) => setRe(parseFloat(value))}
+            onChange={onRealChange}
             display={'inline-block'}
             ml={'1rem'}
             size="md"
             placeholder={'Re'}
             pattern={'[-+]?([0-9]*.[0-9]+|[0-9]+)'}
             inputMode={'numeric'}
-            defaultValue={-0.4}
+            defaultValue={0.4}
             max={1}
             min={-1}
           >
@@ -31,14 +25,14 @@ const FunctionInput = () => {
         <Heading as={'h5'} m={'1rem 3rem'}>
           Im:{' '}
           <NumberInput
-            onChange={(value) => setIm(parseFloat(value))}
+            onChange={onImaginaryChange}
             display={'inline-block'}
             ml={'1rem'}
             size="md"
             placeholder={'Im'}
             pattern={'[-+]?([0-9]*.[0-9]+|[0-9]+)'}
             inputMode={'numeric'}
-            defaultValue={-0.4}
+            defaultValue={-0.6}
             max={1}
             min={-1}
           >
