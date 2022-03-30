@@ -6,28 +6,16 @@ import ActionButtons from './ActionButtons';
 import { AccordionSection } from './AccordionSection';
 import { JuliaHeader } from './JuliaHeader';
 import { Function } from './Function';
+import { useJuliaSet } from '../hooks/useJuliaFunction';
+import { COLOR_SETS, SIZE_SETS } from '../config/sets';
 
-const COLOR_SETS = {
-  GRAYSCALE: 'Grayscale',
-  RAINBOW: 'Rainbow',
-  BLUESCALE: 'Bluescale',
+type SettingsSidebarType = {
+  onGenerateJuliaSet: () => void;
 };
 
-const SIZE_SETS = {
-  R720: '720',
-  R1080: '1080',
-  R2K: '2K',
-  R4K: '4K',
-};
+const SettingsSidebar = ({ onGenerateJuliaSet }: SettingsSidebarType) => {
+  const { setColor, setSize } = useJuliaSet();
 
-const IMAGE_SIZES = {
-  [SIZE_SETS.R720]: { width: 200, height: 200 },
-  [SIZE_SETS.R1080]: { width: 200, height: 200 },
-  [SIZE_SETS.R2K]: { width: 200, height: 200 },
-  [SIZE_SETS.R4K]: { width: 200, height: 200 },
-};
-
-const SettingsSidebar = ({ onSizeChange, onColorChange, onGenerateJuliaSet }: any) => {
   return (
     <Box
       as={'aside'}
@@ -45,13 +33,13 @@ const SettingsSidebar = ({ onSizeChange, onColorChange, onGenerateJuliaSet }: an
           sectionName={'Color Schema'}
           sectionItems={Object.values(COLOR_SETS)}
           defaultValue={COLOR_SETS.GRAYSCALE}
-          onChange={onColorChange}
+          onChange={setColor}
         />
         <AccordionSection
           sectionName={'Image Size'}
           sectionItems={Object.values(SIZE_SETS)}
           defaultValue={SIZE_SETS.R720}
-          onChange={onSizeChange}
+          onChange={setSize}
         />
       </Accordion>
       <Box padding={'10px 0'}>
@@ -72,5 +60,4 @@ const SettingsSidebar = ({ onSizeChange, onColorChange, onGenerateJuliaSet }: an
   );
 };
 
-export { IMAGE_SIZES, SIZE_SETS };
 export default SettingsSidebar;

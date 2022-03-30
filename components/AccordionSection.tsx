@@ -14,7 +14,7 @@ type Props = {
   defaultValue: string;
   sectionName: string;
   sectionItems: string[];
-  onChange: () => void;
+  onChange: (value: string) => void;
 };
 
 const AccordionSection = ({ defaultValue, sectionItems, sectionName, onChange }: Props) => {

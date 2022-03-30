@@ -1,12 +1,15 @@
+import React from 'react';
 import type { AppProps } from 'next/app';
 import { ChakraProvider } from '@chakra-ui/react';
 import theme from '../config/theme';
+import { JuliaSetProvider } from '../hooks/useJuliaFunction';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  console.warn('hello');
   return (
     <ChakraProvider theme={theme}>
-      <Component {...pageProps} />
+      <JuliaSetProvider>
+        <Component {...pageProps} />
+      </JuliaSetProvider>
     </ChakraProvider>
   );
 }

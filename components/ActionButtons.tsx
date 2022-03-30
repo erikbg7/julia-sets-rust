@@ -3,7 +3,11 @@ import { IoAddCircle, IoCloudDownload } from 'react-icons/io5';
 import React from 'react';
 import LinkItem from './LinkItem';
 
-const ActionButtons = ({ onGenerateJuliaSet }: any) => {
+type ActionButtonsProps = {
+  onGenerateJuliaSet: () => void;
+};
+
+const ActionButtons = ({ onGenerateJuliaSet }: ActionButtonsProps) => {
   const isSmallSize = useBreakpointValue({ base: true, md: false });
 
   if (isSmallSize) {

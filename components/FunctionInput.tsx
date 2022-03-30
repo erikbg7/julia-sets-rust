@@ -1,7 +1,12 @@
 import React from 'react';
 import { Box, Heading, NumberInput, NumberInputField } from '@chakra-ui/react';
 
-const FunctionInput = ({ onRealChange, onImaginaryChange }) => {
+type FunctionInputProps = {
+  onRealChange: (value: string) => void;
+  onImaginaryChange: (value: string) => void;
+};
+
+const FunctionInput = ({ onRealChange, onImaginaryChange }: FunctionInputProps) => {
   return (
     <>
       <Box>

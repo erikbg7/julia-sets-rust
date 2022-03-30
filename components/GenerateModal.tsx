@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Button,
   Modal,
@@ -11,14 +12,19 @@ import {
 } from '@chakra-ui/react';
 import { Function } from './Function';
 import { FunctionInput } from './FunctionInput';
-import React, { useState } from 'react';
+import { useJuliaSet } from '../hooks/useJuliaFunction';
 
-const GenerateModal = ({ isOpen, onClose, onNewFunction }) => {
-  const [re, setRe] = useState(0.4);
-  const [im, setIm] = useState(-0.6);
+type ModalProps = {
+  isOpen: boolean;
+  onClose: () => void;
+  onNewFunction: () => void;
+};
 
-  const onRealChange = (value) => setRe(parseFloat(value));
-  const onImaginaryChange = (value) => setIm(parseFloat(value));
+const GenerateModal = ({ isOpen, onClose, onNewFunction }: ModalProps) => {
+  const { re, im, setRe, setIm } = useJuliaSet();
+
+  const onRealChange = (value: string) => setRe(parseFloat(value));
+  const onImaginaryChange = (value: string) => setIm(parseFloat(value));
   const onGenerateNewFunction = () => {
     onClose();
     onNewFunction(re, im);

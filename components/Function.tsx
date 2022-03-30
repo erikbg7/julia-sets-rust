@@ -8,7 +8,7 @@ type Props = {
 };
 
 const Function = ({ exp, cRe, cIm }: Props) => {
-  console.warn({ exp, cRe, cIm });
+  // console.warn({ exp, cRe, cIm });
   const isDefined = !!cRe || !!cIm;
 
   return (
