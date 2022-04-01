@@ -7,14 +7,14 @@ import { AccordionSection } from './AccordionSection';
 import { JuliaHeader } from './JuliaHeader';
 import { Function } from './Function';
 import { useJuliaSet } from '../hooks/useJuliaFunction';
-import { COLOR_SETS, SIZE_SETS } from '../config/sets';
+import { COLOR_SETS, ENGINE_SETS, SIZE_SETS } from '../config/sets';
 
 type SettingsSidebarType = {
   onGenerateJuliaSet: () => void;
 };
 
 const SettingsSidebar = ({ onGenerateJuliaSet }: SettingsSidebarType) => {
-  const { re, im, setColor, setSize } = useJuliaSet();
+  const { re, im, setColor, setSize, setEngine } = useJuliaSet();
 
   return (
     <Box
@@ -28,7 +28,7 @@ const SettingsSidebar = ({ onGenerateJuliaSet }: SettingsSidebarType) => {
       borderTopRadius={10}
     >
       <JuliaHeader display={['none', 'flex']} />
-      <Accordion allowMultiple defaultIndex={[0, 1]}>
+      <Accordion allowMultiple defaultIndex={[0, 1, 2]}>
         <AccordionSection
           sectionName={'Color Schema'}
           sectionItems={Object.values(COLOR_SETS)}
@@ -40,6 +40,12 @@ const SettingsSidebar = ({ onGenerateJuliaSet }: SettingsSidebarType) => {
           sectionItems={Object.values(SIZE_SETS)}
           defaultValue={SIZE_SETS.R720}
           onChange={setSize}
+        />
+        <AccordionSection
+          sectionName={'Engine'}
+          sectionItems={Object.values(ENGINE_SETS)}
+          defaultValue={ENGINE_SETS.RUST}
+          onChange={setEngine}
         />
       </Accordion>
       {!!(re || im) && (

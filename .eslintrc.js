@@ -23,14 +23,19 @@ module.exports = {
   rules: {
     // force using Logger object
     'no-console': ['warn'],
-    'no-duplicate-imports': ['warn'],
-
+    'no-duplicate-imports': 'off',
+    '@typescript-eslint/no-duplicate-imports': ['error'],
     // disable explicit return types
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     // allow "_" prefixed function arguments
     '@typescript-eslint/no-unused-vars': [
       'warn',
-      { args: 'after-used', argsIgnorePattern: '^_', ignoreRestSiblings: true, varsIgnorePattern: '^_+$' },
+      {
+        args: 'after-used',
+        argsIgnorePattern: '^_',
+        ignoreRestSiblings: true,
+        varsIgnorePattern: '^_+$',
+      },
     ],
     '@typescript-eslint/no-empty-function': 'warn',
     '@typescript-eslint/class-name-casing': 'off',

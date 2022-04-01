@@ -1,42 +1,40 @@
-import React, { createContext, ReactNode, useContext, useState, Dispatch } from 'react';
-import { COLOR_SETS, ColorValuesType, SIZE_SETS, SizeValuesType } from '../config/sets';
+import React, { createContext, useContext, useState } from 'react';
+import type { ReactNode, Dispatch } from 'react';
+import { COLOR_SETS, ENGINE_SETS, SIZE_SETS } from '../config/sets';
+import type { ColorValuesType, EngineValuesType, SizeValuesType } from '../config/sets';
 
 type JuliaSetProviderProps = {
   children: ReactNode;
 };
 
+type JuliaSetComplex = {
+  re: number;
+  im: number;
+};
+
 type JuliaSetContext = {
   color: ColorValuesType;
   size: SizeValuesType;
+  engine: EngineValuesType;
   setColor: Dispatch<ColorValuesType>;
   setSize: Dispatch<SizeValuesType>;
-  re: number;
-  im: number;
-  setRe: Dispatch<number>;
-  setIm: Dispatch<number>;
-};
+  setEngine: Dispatch<EngineValuesType>;
+  setComplex: Dispatch<JuliaSetComplex>;
+} & JuliaSetComplex;
 
 const JuliaSetContext = createContext<JuliaSetContext>(undefined);
 
 const JuliaSetProvider = ({ children }: JuliaSetProviderProps) => {
+  const [complex, setComplex] = useState<JuliaSetComplex>({ re: 0, im: 0 });
+  const [engine, setEngine] = useState<EngineValuesType>(ENGINE_SETS.RUST);
   const [color, setColor] = useState<ColorValuesType>(COLOR_SETS.GRAYSCALE);
   const [size, setSize] = useState<SizeValuesType>(SIZE_SETS.R720);
-  const [re, setRe] = useState(0);
-  const [im, setIm] = useState(0);
+
+  const setters = { setComplex, setEngine, setColor, setSize };
+  const values = { re: complex.re, im: complex.im, engine, color, size };
 
   return (
-    <JuliaSetContext.Provider
-      value={{
-        color,
-        size,
-        re,
-        im,
-        setColor,
-        setSize,
-        setRe,
-        setIm,
-      }}
-    >
+    <JuliaSetContext.Provider value={{ ...values, ...setters }}>
       {children}
     </JuliaSetContext.Provider>
   );
@@ -44,12 +42,11 @@ const JuliaSetProvider = ({ children }: JuliaSetProviderProps) => {
 
 const useJuliaSet = () => {
   const context = useContext(JuliaSetContext);
+  return context || throwNoContextError();
+};
 
-  if (!context) {
-    throw new Error('useJuliaSet needs to be inside a JuliaSetProvider');
-  }
-
-  return context;
+const throwNoContextError = () => {
+  throw new Error('useJuliaSet needs to be inside a JuliaSetProvider');
 };
 
 export { JuliaSetProvider, useJuliaSet };

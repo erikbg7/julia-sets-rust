@@ -20,7 +20,7 @@ type ModalProps = {
 };
 
 const GenerateModal = ({ isOpen, onClose }: ModalProps) => {
-  const { re, im, setRe, setIm } = useJuliaSet();
+  const { re, im, setComplex } = useJuliaSet();
 
   const [cRe, setCRe] = useState(re || 0.4);
   const [cIm, setCIm] = useState(im || -0.6);
@@ -31,10 +31,7 @@ const GenerateModal = ({ isOpen, onClose }: ModalProps) => {
 
   const onGenerateNewFunction = () => {
     onClose();
-    setTimeout(() => {
-      setRe(cRe);
-      setIm(cIm);
-    }, 300);
+    setComplex({ re: cRe, im: cIm });
   };
 
   return (
