@@ -4,9 +4,11 @@ import { Box, Heading, NumberInput, NumberInputField } from '@chakra-ui/react';
 type FunctionInputProps = {
   onRealChange: (value: string) => void;
   onImaginaryChange: (value: string) => void;
+  cRe: number;
+  cIm: number;
 };
 
-const FunctionInput = ({ onRealChange, onImaginaryChange }: FunctionInputProps) => {
+const FunctionInput = ({ cRe, cIm, onRealChange, onImaginaryChange }: FunctionInputProps) => {
   return (
     <>
       <Box>
@@ -20,7 +22,7 @@ const FunctionInput = ({ onRealChange, onImaginaryChange }: FunctionInputProps) 
             placeholder={'Re'}
             pattern={'[-+]?([0-9]*.[0-9]+|[0-9]+)'}
             inputMode={'numeric'}
-            defaultValue={0.4}
+            defaultValue={cRe}
             max={1}
             min={-1}
           >
@@ -37,7 +39,7 @@ const FunctionInput = ({ onRealChange, onImaginaryChange }: FunctionInputProps) 
             placeholder={'Im'}
             pattern={'[-+]?([0-9]*.[0-9]+|[0-9]+)'}
             inputMode={'numeric'}
-            defaultValue={-0.6}
+            defaultValue={cIm}
             max={1}
             min={-1}
           >

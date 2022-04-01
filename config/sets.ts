@@ -20,8 +20,8 @@ type SizeKeysType = keyof typeof SIZE_SETS;
 type SizeValuesType = typeof SIZE_SETS[SizeKeysType];
 
 const SIZE_RESOLUTION: Record<SizeValuesType, { width: number; height: number }> = {
-  [SIZE_SETS.R720]: { width: 200, height: 200 },
-  [SIZE_SETS.R1080]: { width: 200, height: 200 },
+  [SIZE_SETS.R720]: { width: 720, height: 720 },
+  [SIZE_SETS.R1080]: { width: 1080, height: 1080 },
   [SIZE_SETS.R2K]: { width: 200, height: 200 },
   [SIZE_SETS.R4K]: { width: 200, height: 200 },
 };

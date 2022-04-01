@@ -20,10 +20,10 @@ type ModalProps = {
 };
 
 const GenerateModal = ({ isOpen, onClose }: ModalProps) => {
-  const { setRe, setIm } = useJuliaSet();
+  const { re, im, setRe, setIm } = useJuliaSet();
 
-  const [cRe, setCRe] = useState(0.4);
-  const [cIm, setCIm] = useState(-0.6);
+  const [cRe, setCRe] = useState(re || 0.4);
+  const [cIm, setCIm] = useState(im || -0.6);
 
   const onRealChange = (value: string) => setCRe(parseFloat(value));
 
@@ -48,7 +48,7 @@ const GenerateModal = ({ isOpen, onClose }: ModalProps) => {
           <Function exp={2} />
           <Text>Where c is a complex number. Please, provide the values for the real and imaginary numbers</Text>
           <Function exp={2} cRe={cRe} cIm={cIm} />
-          <FunctionInput onRealChange={onRealChange} onImaginaryChange={onImaginaryChange} />
+          <FunctionInput cRe={cRe} cIm={cIm} onRealChange={onRealChange} onImaginaryChange={onImaginaryChange} />
         </ModalBody>
         <ModalFooter>
           <Button onClick={onGenerateNewFunction}>Generate</Button>
