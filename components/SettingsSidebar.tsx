@@ -14,7 +14,7 @@ type SettingsSidebarType = {
 };
 
 const SettingsSidebar = ({ onGenerateJuliaSet }: SettingsSidebarType) => {
-  const { setColor, setSize } = useJuliaSet();
+  const { re, im, setColor, setSize } = useJuliaSet();
 
   return (
     <Box
@@ -42,13 +42,14 @@ const SettingsSidebar = ({ onGenerateJuliaSet }: SettingsSidebarType) => {
           onChange={setSize}
         />
       </Accordion>
-      <Box padding={'10px 0'}>
-        <Heading as={'h4'} size={'sm'}>
-          Current Function:
-        </Heading>
-        <Function exp={2} cRe={0.3} cIm={0.6} />
-      </Box>
-
+      {!!(re || im) && (
+        <Box padding={'10px 0'}>
+          <Heading as={'h4'} size={'sm'}>
+            Current Function:
+          </Heading>
+          <Function exp={2} cRe={re} cIm={im} />
+        </Box>
+      )}
       <ActionButtons onGenerateJuliaSet={onGenerateJuliaSet} />
 
       <Box as={'address'} position={'absolute'} bottom={5} left={0} right={0}>

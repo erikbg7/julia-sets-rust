@@ -21,8 +21,8 @@ const JuliaSetContext = createContext<JuliaSetContext>(undefined);
 const JuliaSetProvider = ({ children }: JuliaSetProviderProps) => {
   const [color, setColor] = useState<ColorValuesType>(COLOR_SETS.GRAYSCALE);
   const [size, setSize] = useState<SizeValuesType>(SIZE_SETS.R720);
-  const [re, setRe] = useState(0.4);
-  const [im, setIm] = useState(-0.6);
+  const [re, setRe] = useState(0);
+  const [im, setIm] = useState(0);
 
   return (
     <JuliaSetContext.Provider

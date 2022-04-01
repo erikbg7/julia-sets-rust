@@ -1,5 +1,6 @@
 import { COLOR_GENERATORS, ColorValuesType, SIZE_RESOLUTION, SizeValuesType } from '../config/sets';
 import { generateSet } from '../engine/javascript/generate';
+import { UseToastOptions } from '@chakra-ui/react';
 
 const generateJuliaImage = async (re: number, im: number, size: SizeValuesType, color: ColorValuesType) => {
   const { width, height } = SIZE_RESOLUTION[size];
@@ -8,7 +9,7 @@ const generateJuliaImage = async (re: number, im: number, size: SizeValuesType, 
   const context = canvas.getContext('2d');
   const img = context.createImageData(width, height);
 
-  const arr: number[] = generateSet(width, height, 2, 0.279, 0);
+  const arr: number[] = generateSet(width, height, 2, re, im);
 
   let off = 0;
   arr.forEach((el) => {
@@ -23,4 +24,12 @@ const generateJuliaImage = async (re: number, im: number, size: SizeValuesType, 
   context.drawImage(resizedImage, 0, 0, resizedImage.width, resizedImage.height, 0, 0, 600, 600);
 };
 
-export { generateJuliaImage };
+const getToastConfig = (time: number): UseToastOptions => ({
+  title: `Finished in ${time} ms`,
+  status: 'info',
+  variant: 'solid',
+  isClosable: true,
+  position: 'top-right',
+});
+
+export { generateJuliaImage, getToastConfig };
