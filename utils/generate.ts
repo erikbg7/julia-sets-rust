@@ -3,7 +3,12 @@ import { generateSet } from '../engines/javascript/generate';
 import { helloWorld } from '../engines';
 import { UseToastOptions } from '@chakra-ui/react';
 
-const generateJuliaImage = async (re: number, im: number, size: SizeValuesType, color: ColorValuesType) => {
+const generateJuliaImage = async (
+  re: number,
+  im: number,
+  size: SizeValuesType,
+  color: ColorValuesType
+) => {
   const { width, height } = SIZE_RESOLUTION[size];
 
   const canvas = document.getElementById('canvas') as HTMLCanvasElement;
@@ -28,7 +33,17 @@ const generateJuliaImage = async (re: number, im: number, size: SizeValuesType, 
   });
 
   const resizedImage = await window.createImageBitmap(img, 0, 0, img.width, img.height);
-  context.drawImage(resizedImage, 0, 0, resizedImage.width, resizedImage.height, 0, 0, 600, 600);
+  context.drawImage(
+    resizedImage,
+    0,
+    0,
+    resizedImage.width,
+    resizedImage.height,
+    0,
+    0,
+    canvas.width,
+    canvas.height
+  );
 };
 
 const getToastConfig = (time: number): UseToastOptions => ({

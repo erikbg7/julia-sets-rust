@@ -31,7 +31,7 @@ const GenerateModal = ({ isOpen, onClose }: ModalProps) => {
 
   const onGenerateNewFunction = () => {
     onClose();
-    setComplex({ re: cRe, im: cIm });
+    setTimeout(() => setComplex({ re: cRe, im: cIm }), 300);
   };
 
   return (
@@ -41,11 +41,21 @@ const GenerateModal = ({ isOpen, onClose }: ModalProps) => {
         <ModalHeader>Create a new Julia set</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
-          <Text>We use quadratic polynomials to generate more beautiful sets, those can be expressed as:</Text>
+          <Text>
+            We use quadratic polynomials to generate more beautiful sets, those can be expressed as:
+          </Text>
           <Function exp={2} />
-          <Text>Where c is a complex number. Please, provide the values for the real and imaginary numbers</Text>
+          <Text>
+            Where c is a complex number. Please, provide the values for the real and imaginary
+            numbers
+          </Text>
           <Function exp={2} cRe={cRe} cIm={cIm} />
-          <FunctionInput cRe={cRe} cIm={cIm} onRealChange={onRealChange} onImaginaryChange={onImaginaryChange} />
+          <FunctionInput
+            cRe={cRe}
+            cIm={cIm}
+            onRealChange={onRealChange}
+            onImaginaryChange={onImaginaryChange}
+          />
         </ModalBody>
         <ModalFooter>
           <Button onClick={onGenerateNewFunction}>Generate</Button>
