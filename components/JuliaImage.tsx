@@ -29,6 +29,7 @@ const JuliaImage = () => {
       <AspectRatio maxW={['100vw', '90vh']} ratio={1} margin={'auto'}>
         <canvas id={'canvas'} width={600} height={600} />
       </AspectRatio>
+      {!re && !im && <Box>No function selected</Box>}
       {isLoading && (
         <Spinner thickness="4px" speed="0.65s" emptyColor="gray.200" color="blue.500" size="xl" />
       )}

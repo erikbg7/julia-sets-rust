@@ -4,10 +4,18 @@ import { mode } from '@chakra-ui/theme-tools';
 const styles = {
   global: {
     body: {
-      bg: '#272727',
+      overflow: 'hidden',
+      position: 'absolute',
+      width: '100%',
+      height: '100%',
+      bg: '#0e0e10',
     },
     aside: {
-      bg: '#333',
+      bg: '#1f1f23',
+    },
+    nav: {
+      bg: '#18181b',
+      boxShadow: '0 1px 2px black,0 0px 2px black',
     },
   },
   textStyles: {},

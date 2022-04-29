@@ -5,14 +5,14 @@ type Props = {
   exp: number;
   cRe?: number;
   cIm?: number;
+  size?: 'sm' | 'md';
 };
 
-const Function = ({ exp, cRe, cIm }: Props) => {
-  // console.warn({ exp, cRe, cIm });
+const Function = ({ exp, cRe, cIm, size }: Props) => {
   const isDefined = !!cRe || !!cIm;
 
   return (
-    <Heading as={'h4'} textAlign={'center'} my={5}>
+    <Heading as={'h4'} textAlign={'center'} my={5} size={size}>
       <span>
         {!isDefined && (
           <span>
