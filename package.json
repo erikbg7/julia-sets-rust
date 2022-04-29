@@ -5,7 +5,7 @@
     "build": "next build",
     "start": "next start",
     "type-check": "tsc",
-    "build-rust": "cd engine/rust && wasm-pack build"
+    "build-rust": "cd engines/rust && wasm-pack build"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.8.5",
