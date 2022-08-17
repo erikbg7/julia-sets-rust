@@ -1,5 +1,5 @@
 import { COLOR_GENERATORS, ColorValuesType, SIZE_RESOLUTION, SizeValuesType } from '../config/sets';
-import { generateSetValues } from '../engines';
+import { generateSetValues } from '../../engines';
 import { UseToastOptions } from '@chakra-ui/react';
 
 const generateJuliaImage = async (
