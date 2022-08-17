@@ -33,10 +33,10 @@ function hslToRgb(h: number, s: number, l: number) {
  */
 function hsvToRGB(h: number, s: number, v: number) {
   if (v > 1.0) v = 1.0;
-  var hp = h / 60.0;
-  var c = v * s;
-  var x = c * (1 - Math.abs((hp % 2) - 1));
-  var rgb = [0, 0, 0];
+  const hp = h / 60.0;
+  const c = v * s;
+  const x = c * (1 - Math.abs((hp % 2) - 1));
+  let rgb = [0, 0, 0];
 
   if (0 <= hp && hp < 1) rgb = [c, x, 0];
   if (1 <= hp && hp < 2) rgb = [x, c, 0];
@@ -45,7 +45,7 @@ function hsvToRGB(h: number, s: number, v: number) {
   if (4 <= hp && hp < 5) rgb = [x, 0, c];
   if (5 <= hp && hp < 6) rgb = [c, 0, x];
 
-  var m = v - c;
+  const m = v - c;
   rgb[0] += m;
   rgb[1] += m;
   rgb[2] += m;
