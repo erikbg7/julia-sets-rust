@@ -1,6 +1,5 @@
 import { COLOR_GENERATORS, ColorValuesType, SIZE_RESOLUTION, SizeValuesType } from '../config/sets';
-import { generateSet } from '../engines/javascript/generate';
-import { helloWorld } from '../engines';
+import { generateSetValues } from '../engines';
 import { UseToastOptions } from '@chakra-ui/react';
 
 const generateJuliaImage = async (
@@ -17,11 +16,8 @@ const generateJuliaImage = async (
 
   const arr = new Uint8Array(width * height);
   await (
-    await helloWorld
+    await generateSetValues
   )(width, height, 2, re, im, arr);
-
-  // const arr: number[] = generateSet(width, height, 2, re, im);
-  // const arr: number[] = generateSet(width, height, 2, re, im);
 
   let off = 0;
   arr.forEach((el) => {

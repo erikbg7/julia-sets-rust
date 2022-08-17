@@ -21,7 +21,7 @@ fn normalize_range(index: u32, range: u32) -> f32 {
 }
 
 #[wasm_bindgen]
-pub fn hello_world(w: u32, h: u32, power: u32, c_re: f32, c_im: f32, output: &mut [u8]) {
+pub fn generate_set_values(w: u32, h: u32, power: u32, c_re: f32, c_im: f32, output: &mut [u8]) {
     let mut off = 0;
     for y in 0..h {
         for x in 0..w {
