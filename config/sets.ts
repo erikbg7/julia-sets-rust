@@ -28,7 +28,7 @@ type EngineKeysType = keyof typeof ENGINE_SETS;
 type EngineValuesType = typeof ENGINE_SETS[EngineKeysType];
 
 const SIZE_RESOLUTION: Record<SizeValuesType, { width: number; height: number }> = {
-  [SIZE_SETS.R720]: { width: 1280, height: 720 },
+  [SIZE_SETS.R720]: { width: 720, height: 720 },
   [SIZE_SETS.R1080]: { width: 1080, height: 1080 },
   [SIZE_SETS.R2K]: { width: 2048, height: 2048 },
   [SIZE_SETS.R4K]: { width: 200, height: 200 },
